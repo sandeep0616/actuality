@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="col-md-12" *ngIf="setLoginForm">
+        <h2>Login</h2>
+        <form [formGroup]="loginFormGroup">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="inputname" class="control-label col-form-label">Email or Mobile Number
+                        <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control"  placeholder="" formControlName="email_or_mobile">
+                </div>
+                <div class="form-group">
+                    <label for="inputname" class="control-label col-form-label">Password
+                        <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" placeholder="" formControlName="password">
+                </div>
+                <button type="button" (click)="loginForm()">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12" *ngIf="!setLoginForm">
+        <h2>Validate OTP</h2>
+        <p *ngIf="message" class="alert-message">{{message}}</p>
+        <form [formGroup]="validateFormGroup">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="inputname" class="control-label col-form-label">OTP
+                        <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control"  placeholder="" formControlName="otp">
+                </div>
+                <div class="col-md-6">
+                <button type="button" (click)="submitOTP()">Submit OTP</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

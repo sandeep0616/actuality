@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="col-md-12" *ngIf="setRegisterForm">
+        <h2>Register</h2>
+        <form [formGroup]="registerFormGroup">
+            <div class="col-sm-12 col-md-6">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">First Name
+                            <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="firstname">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Last Name
+                            <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="lastname">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Phone Number
+                            <span class="text-danger">*</span></label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <select name="dialing_code" class="form-control" formControlName="dialing_code">
+                                            <option value="+1">+1</option>
+                                            <option value="+91">+91</option>
+                                            <option value="+60">+60</option>
+                                          </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder="" formControlName="mobile">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Email Address
+                            <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="email">
+                    </div>
+                </div>
+               
+              <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="inputname" class="control-label col-form-label">Password
+                        <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" placeholder="" formControlName="password">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="inputname" class="control-label col-form-label">Confirm Password
+                        <span class="text-danger">*</span></label>
+                    <input type="password" class="form-control" placeholder="" formControlName="confirm_password">
+                </div>
+              </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Date of Birth
+                            <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" placeholder="" formControlName="dob">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Gender
+                            <span class="text-danger">*</span></label>
+                                <select name="gender" class="form-control" formControlName="gender">
+                                    <option>Select Your Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Other</option>
+                                  </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="inputname" class="control-label col-form-label">Referal Code</label>
+                            <input type="text" class="form-control" placeholder="" formControlName="referral_code">
+                    </div>
+                </div>
+                <button type="button" (click)="register()" [disabled]="registerFormGroup.invalid">Continue</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12" *ngIf="!setRegisterForm">
+        <h2>Validate OTP</h2>
+        <alert *ngIf="message">{{message}}</alert>
+        <form [formGroup]="validateFormGroup">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="inputname" class="control-label col-form-label">OTP
+                        <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control"  placeholder="" formControlName="otp">
+                </div>
+                <div class="col-md-6">
+                <button type="button"  (click)="submitOTP()">Submit OTP</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
